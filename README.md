@@ -1,6 +1,6 @@
 # Setting up this project on your PC
 
-##clone this repository 
+## clone this repository 
 - git clone lhttps://github.com/GENESDEMON/LUMEN-CRUD-API.git
 ## cd into your project
 - So remember to type cd projectName to move your terminal working location to the project file you just created
