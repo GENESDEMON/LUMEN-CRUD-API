@@ -3,10 +3,10 @@ namespace App\Http\Controllers;
 use App\Models\Products;
 use Illuminate\Http\Request;
 
-class ProductController extends Controller{
+class ProductsController extends Controller{
     public function index(){
         $products = Products::all();
-        return response()->json($products)
+        return response()->json($products);
     }
 
     public function show($id){
@@ -19,7 +19,7 @@ class ProductController extends Controller{
         $product->name = $request->name;
         $product->category = $request->category;
         $product->subcategory = $request->subcategory;
-        $product->shop = $request->shop;
+        $product->store = $request->store;
         $product->price = $request->price;
 
         $product->save();
@@ -31,10 +31,16 @@ class ProductController extends Controller{
         $product->name = $request->name;
         $product->category = $request->category;
         $product->subcategory = $request->subcategory;
-        $product->shop = $request->shop;
+        $product->store = $request->store;
         $product->price = $request->price;
 
         $product->save();
-        return response()->json($product);
+        return response()->json("Product updated successfully");
+    }
+
+    public function delete($id){
+        $product = Products::find($id);
+        $product->delete();
+        return response()->json('Product successfully deleted');
     }
 }
